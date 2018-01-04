@@ -1,0 +1,4 @@
+<!--pages/coupon/coupon.wxml-->
+<view class="coupon">
+	<text>{{couponCode}}</text>
+</view>

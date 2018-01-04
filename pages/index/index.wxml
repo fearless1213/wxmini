@@ -1,0 +1,9 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="welcome_text">
+    <text>{{motto}}</text>
+  </view>
+  <view>
+    <button bindtap="toForm" class="redirect_btn">BEGIN</button>
+  </view>
+</view>

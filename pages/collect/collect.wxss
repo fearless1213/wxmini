@@ -1,0 +1,48 @@
+/* pages/collect/collect.wxss */
+.section{
+	padding:0 100rpx;
+	margin:20px 0;
+}
+
+.section text{
+	color: lightblue;
+	margin-bottom: 5px;
+	display: inline-block;
+}
+
+.section input{
+	border: 1px solid #ddd;
+	height: 30px;
+	line-height: 30px;
+	padding-left: 20rpx;
+	font-size: 12px;
+}
+
+.section .picker{
+	padding-left: 20rpx;
+	color: #999;
+	font-size: 12px;
+}
+
+.btn-area{
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.btn-area button{
+	display: inline-block;
+	width: 100px;
+	height: 30px;
+	line-height: 30px;
+}
+
+.btn-area button:first-child{
+	background-color: lightblue;
+	color:#fff;
+}
+
+.btn-area button:last-child{
+	background-color: #fff;
+	color: lightblue;
+}

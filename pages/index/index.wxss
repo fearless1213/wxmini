@@ -1,0 +1,8 @@
+.welcome_text{
+	margin-bottom: 30px;
+}
+
+.redirect_btn{
+	background-color: lightblue;
+	color:#fff;
+}

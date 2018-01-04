@@ -1,0 +1,30 @@
+<!--pages/collect/collect.wxml-->
+<form class="form" bindsubmit="formSubmit" bindreset="formReset">
+	<view class="section">
+		<text>Name:</text>
+	  <input placeholder="Plese input your name" name="name"/>
+	</view>
+	<view class="section">
+		<text>Mobile Number:</text>
+	  <input maxlength="11" placeholder="Please input your tel number" type="tel" name="tel"/>
+	</view>
+	<view class="section">
+		<text>Email:</text>
+	  <input placeholder="Please input your email" name="email" />
+	</view>
+	<view class="section">
+	  <text>BirthDate</text>
+	  <picker mode="date" value="{{date}}" start="1920-01-01" end="2018-02-01" bindchange="bindDateChange" name="birthdate">
+	    <view class="picker" wx:if="{{date}}">
+	      {{date}}
+	    </view>
+	     <view class="picker" wx:else="{{date}}">
+	      Please Choose Birthdate
+	    </view>
+	  </picker>
+	</view>
+	<view class="btn-area">
+    <button formType="submit">Submit</button>
+    <button formType="reset">Reset</button>
+  </view>
+</form>

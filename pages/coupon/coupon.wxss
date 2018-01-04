@@ -1,0 +1,8 @@
+/* pages/coupon/coupon.wxss */
+.coupn text{
+	width: 80%;
+	margin: 0 auto;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+}
