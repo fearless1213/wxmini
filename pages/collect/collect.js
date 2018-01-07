@@ -1,70 +1,28 @@
-// pages/collect/collect.js
+
+/*
+*author:Lin Ya
+*date:2018-01-07
+*/
+const util = require('../../utils/util.js')
+const app = getApp();
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-    date: ''
+    date: '',
+    isError: false,
+    errorMsg: ''
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function () {
   
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
   onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+    this.setData({
+      date: '',
+      isError: false,
+      errorMsg: ''
+    })
   },
   bindDateChange: function(e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       date: e.detail.value
     })
@@ -74,25 +32,82 @@ Page({
     let name = currData.name,
         tel = currData.tel,
         email = currData.email,
-        birthdate = currData.birthdate;
+        birthdate = currData.birthDate;
+        
     if(!(name && tel && email && birthdate)){
-      wx.showToast({
-        title: 'fill all',
-        icon: 'loading',
-        duration: 2000
+      this.setData({
+        isError: true,
+        errorMsg: 'Please fill all information.'
+      })
+      return
+    }else{
+      this.setData({
+        isError: false,
+        errorMsg: ''
+      })
+    }
+
+    let reg = /^13[0-9]{9}$|15[0-9]{9}$|17[1-9][0-9]{8}$|18[0-9]{9}$/
+
+    if(!reg.test(tel)){
+      this.setData({
+        isError: true,
+        errorMsg: 'Please enter correct tel number'
+      })
+      return
+    }else{
+      this.setData({
+        isError: false,
+        errorMsg: ''
+      })
+    }
+    
+    let currTime = util.formatTime(new Date());
+
+    let userInfo = app.globalData.userInfo,
+        telList = app.globalData.telList,
+        emailList = app.globalData.emailList;
+    if(telList.indexOf(tel) > -1){
+      this.setData({
+        isError: true,
+        errorMsg: 'The tel number has been used!'
       })
       return
     }
-    
+
+    if(emailList.indexOf(email) > -1){
+      this.setData({
+        isError: true,
+        errorMsg: 'The email address has been used!'
+      })
+      return
+    }
+
+    this.setData({
+      isError: false,
+      errorMsg: ''
+    })
+    telList.push(tel)
+    emailList.push(email)
+
+    userInfo.push({
+      userName: name,
+      mobileNum: tel,
+      email: email,
+      birthdate: birthdate,
+      timeStamp: currTime
+    })
+
     wx.redirectTo({
       url: '../coupon/coupon'
     })
-    console.log('form发生了submit事件，携带数据为：', currData)
+    
   },
   formReset: function() {
     this.setData({
-      date: ''
+      date: '',
+      isError: false,
+      errorMsg: ''
     })
-    console.log('form发生了reset事件')
   }
 })

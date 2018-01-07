@@ -1,8 +1,10 @@
 .welcome_text{
-	margin-bottom: 30px;
+	margin-bottom: 100px;
+	font-size: 20pt;
 }
 
 .redirect_btn{
-	background-color: lightblue;
+	background-color: #596b95;
 	color:#fff;
+	font-size: 18pt;
 }

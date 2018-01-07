@@ -1,3 +1,8 @@
+/*
+*author:Lin Ya
+*date:2018-01-07
+*/
+
 const formatTime = date => {
   const year = date.getFullYear()
   const month = date.getMonth() + 1

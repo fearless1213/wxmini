@@ -1,8 +1,8 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/logs/logs",
     "pages/collect/collect",
+    "pages/logs/logs",
     "pages/coupon/coupon"
   ],
   "window": {

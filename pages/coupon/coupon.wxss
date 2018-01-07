@@ -1,8 +1,12 @@
 /* pages/coupon/coupon.wxss */
-.coupn text{
-	width: 80%;
-	margin: 0 auto;
+.coupon{
 	height: 50px;
 	line-height: 50px;
 	text-align: center;
+	margin-top: 200px;
+	font-size: 18pt;
+}
+
+.coupon .title{
+	color: #596b95;
 }
